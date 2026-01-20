@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movies CRUD</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="container my-4">
+    <h1 class="mb-4">Movie Database (CRUD)</h1>
+
+    <!-- FORM -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4 id="form-mode" class="mb-3 text-primary">Add new film</h4>
+
+        <form id="movie-form" class="row g-3" novalidate>
+          <!-- Hidden id (syns ej i UI) -->
+          <input type="hidden" id="movie-id" />
+
+          <div class="col-md-6">
+            <label for="title" class="form-label">Titel *</label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              required
+              placeholder="Movie titel"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="director" class="form-label">Director</label>
+            <input type="text" id="director" class="form-control" />
+          </div>
+
+          <div class="col-md-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="number" id="year" class="form-control" min="1800" max="2100" />
+          </div>
+
+          <div class="col-md-3">
+            <label for="rating" class="form-label">Rating (0–10)</label>
+            <input type="number" id="rating" class="form-control" min="0" max="10" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Thumbnail</label>
+            <input type="file" id="thumbnail" class="form-control" accept="image/*">
+          </div>
+
+          <div class="col-12 d-flex gap-2">
+            <button type="submit" id="submit-btn" class="btn btn-primary">
+              Save film
+            </button>
+            <button type="button" id="clear-btn" class="btn btn-secondary">
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- LISTA (skapas helt dynamiskt) -->
+    <div id="movie-list" class="row g-3"></div>
+  </div>
+
+  <!-- MODAL FÖR FEEDBACK -->
+  <div
+    class="modal fade"
+    id="feedbackModal"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Meddelande</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Stäng"
+          ></button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS + App -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
