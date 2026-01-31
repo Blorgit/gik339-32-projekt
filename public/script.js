@@ -27,9 +27,9 @@ function showModal(msg) {
 }
 
 function setCreateMode() {
-  formMode.textContent = 'Skapa ny film';
+  formMode.textContent = 'Add new film';
   formMode.className = 'mb-3 text-primary';
-  submitBtn.textContent = 'Skapa film';
+  submitBtn.textContent = 'Add film';
   idInput.value = '';
   currentThumbnail = null;
 }
@@ -37,7 +37,7 @@ function setCreateMode() {
 function setEditMode(title) {
   formMode.textContent = `Redigerar: ${title}`;
   formMode.className = 'mb-3 text-warning';
-  submitBtn.textContent = 'Uppdatera film';
+  submitBtn.textContent = 'Update film';
 }
 
 /* ---------- SAFE FETCH ---------- */
@@ -144,7 +144,7 @@ async function onEdit(id) {
   }
 }
 
-/* ---------- Delete ---------- */
+/*  Delete  */
 
 async function onDelete(id, title) {
   if (!confirm(`Vill du ta bort "${title}"?`)) return;
@@ -158,7 +158,7 @@ async function onDelete(id, title) {
   }
 }
 
-/* ---------- File → Base64 ---------- */
+/*  File to Base64  */
 
 function fileToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -169,7 +169,7 @@ function fileToBase64(file) {
   });
 }
 
-/* ---------- Submit (Create & Update) ---------- */
+/*  Submit (Create & Update)  */
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
